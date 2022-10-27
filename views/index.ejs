@@ -14,13 +14,13 @@
     <body>
     <div class="container">
        <h1> Budgtr ALL </h1>
-
+        <button><a href="/new">NEW ITEM</a></button>
        
        <table>
         <% for(let i =0; i < budgets.length; i++){ %>
             <tr>
                 <td> <%= budgets[i].date %></td>
-                <td><a href=""> <%= budgets[i].name %> </td></a></td>
+                <td><a href="/show/<%=i%>"> <%= budgets[i].name %> </td></a></td>
                 <td> <%= budgets[i].amount %></td>
             </tr>
     
