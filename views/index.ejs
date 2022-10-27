@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,6 +8,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="normalize.css" />
+        <link rel="stylesheet" href="skeleton.css" />
     </head>
     <body>
     <div class="container">
@@ -18,14 +17,14 @@
 
        
        <table>
-        <% for(let i =0; i < Budgets.length; i++){ %>
+        <% for(let i =0; i < budgets.length; i++){ %>
             <tr>
-                <td> <a href=""> <%= Budgets[i].name %> </td></a></td>
-                <td></td>
-                <td></td>
+                <td> <%= budgets[i].date %></td>
+                <td><a href=""> <%= budgets[i].name %> </td></a></td>
+                <td> <%= budgets[i].amount %></td>
             </tr>
     
-       <%}
+       <%} %>
 
        </table>
 
