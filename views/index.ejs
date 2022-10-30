@@ -7,21 +7,37 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <link rel="stylesheet" href="normalize.css" />
-        <link rel="stylesheet" href="skeleton.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
     </head>
     <body>
+        <% let bankAccount = budget.reduce((newAmount, budget) =>{
+            return newAmount + parseInt(budget.amount)
+        }, 0) %>
+        <% if (bankAccount > 1000) { %>
+            <style>
+                body {
+                    background-color: green; 
+                }
+            </style>
+        <% } else if (bankAccount < 0) { %>
+            <style>
+                body {
+                    background-color: #FF5252;
+                }
+            </style>
+       <% } %>
     <div class="container">
-       <h1> Budgtr ALL </h1>
+       <h1> Budgtr Lab </h1>
+        <h2>Balance: <%= '$ ' + bankAccount %></h2>
         <button><a href="/new">NEW ITEM</a></button>
        
        <table>
-        <% for(let i =0; i < budgets.length; i++){ %>
+        <% for(let i =0; i < budget.length; i++){ %>
             <tr>
-                <td> <%= budgets[i].date %></td>
-                <td><a href="/show/<%=i%>"> <%= budgets[i].name %> </td></a></td>
-                <td> <%= budgets[i].amount %></td>
+                <td> <%= budget[i].date %></td>
+                <td><a href="/show/<%=i%>"> <%= budget[i].name %> </td></a></td>
+                <td> <%= budget[i].amount %></td>
             </tr>
     
        <%} %>
@@ -29,6 +45,6 @@
        </table>
 
     </div>
-        <script src="" async defer></script>
+   
     </body>
 </html>
